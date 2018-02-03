@@ -1,3 +1,5 @@
 import { createContext } from 'react-broadcast';
 
-export default createContext;
+const { Consumer, Provider } = createContext();
+
+export { Consumer, Provider };

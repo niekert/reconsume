@@ -7,7 +7,7 @@ class AnalyticsProvider extends React.Component {
 
     return (
       <Consumer>
-        {analytics => {
+        {(analytics) => {
           const mergedAnalytics = {
             ...analytics,
             ...this.props.analytics,
@@ -22,3 +22,5 @@ class AnalyticsProvider extends React.Component {
     );
   }
 }
+
+export default AnalyticsProvider;

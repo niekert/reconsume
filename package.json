@@ -5,6 +5,13 @@
   "main": "cjs/react-ui-analytics.js",
   "module": "esm/react-ui-analytics.js",
   "unpkg": "umd/react-ui-analytics.js",
+  "scripts": {
+    "build": "node ./scripts/build.js",
+    "prepublishOnly": "node ./scripts/build.js",
+    "clean": "git clean -fdX .",
+    "lint": "eslint modules",
+    "test": "jest"
+  },
   "devDependencies": {
     "babel-core": "^6.17.0",
     "babel-eslint": "^8.2.1",
