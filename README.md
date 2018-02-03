@@ -16,4 +16,6 @@ withAnalytics(
 Accepts an object with props or a function that maps owner props to a new collection of props.
 The given props are merged with the the analytics props set somewhere higher in the tree.
 
-TODO: better docs
+### Example
+
+Check out the [example project](/example/source) which is hosted here: http://react-ui-analytics.surge.sh/
