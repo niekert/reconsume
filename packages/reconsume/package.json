@@ -1,9 +1,16 @@
 {
-  "private": true,
-  "workspaces": ["packages/*"],
-  "name": "reconsume-core",
+  "name": "reconsume",
+  "version": "0.0.1",
+  "license": "MIT",
+  "main": "cjs/reconsume.js",
+  "module": "esm/reconsume.js",
+  "unpkg": "umd/reconsume.js",
   "scripts": {
-    "build": "node scripts/build"
+    "build": "node ./scripts/build.js",
+    "prepublishOnly": "node ./scripts/build.js",
+    "clean": "git clean -fdX .",
+    "lint": "eslint modules",
+    "test": "jest"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
@@ -26,19 +33,20 @@
     "pascal-case": "^2.0.1",
     "pretty-bytes": "^4.0.0",
     "raf": "^3.4.0",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.3.0-alpha.1",
+    "react-dom": "^16.3.0-alpha.1",
     "rollup": "^0.53.4",
     "rollup-plugin-babel": "^3.0.3",
     "rollup-plugin-commonjs": "^8.2.6",
-    "rollup-plugin-node-resolve": "^3.0.2",
+    "rollup-plugin-node-resolve": "^3.2.0",
     "rollup-plugin-replace": "^2.0.0",
     "rollup-plugin-uglify": "^2.0.1"
   },
   "dependencies": {
-    "react-broadcast": "^0.7.0-rc.3"
+    "prop-types": "^15.6.0"
   },
   "peerDependencies": {
-    "react": "^16.3"
+    "prop-types": "^15.6.1",
+    "react": ">=15 || ^16"
   }
 }

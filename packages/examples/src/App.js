@@ -1,21 +1,19 @@
 import React, { Component } from 'react';
 import { withAnalytics } from 'react-ui-analytics';
-import Header from './Header';
-import Content from './Content';
+import Analytics from './Analytics';
 
 class App extends Component {
   render() {
     return (
       <div className="app">
-        <Header />
-        <Content />
+        <Analytics />
       </div>
     );
   }
 }
 
 const enhance = withAnalytics({
-  location: 'homepage',
+  location: 'examples',
 });
 
 export default enhance(App);

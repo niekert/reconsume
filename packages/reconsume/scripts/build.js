@@ -13,7 +13,7 @@ const exec = (command, extraEnv) =>
     env: Object.assign({}, process.env, extraEnv),
   });
 
-const packageName = require('../packages/reconsume/package').name;
+const packageName = require('../package').name;
 
 console.log('\nBuilding ES modules...');
 
@@ -27,19 +27,13 @@ console.log('\nBuilding UMD modules...');
 
 const varName = pascalCase(packageName);
 
-exec(
-  `rollup -c scripts/config.js -f umd -n ${varName} -o umd/${packageName}.js`,
-  {
-    BUILD_ENV: 'development',
-  },
-);
+exec(`rollup -c scripts/config.js -f umd -n ${varName} -o umd/${packageName}.js`, {
+  BUILD_ENV: 'development',
+});
 
-exec(
-  `rollup -c scripts/config.js -f umd -n ${varName} -o umd/${packageName}.min.js`,
-  {
-    BUILD_ENV: 'production',
-  },
-);
+exec(`rollup -c scripts/config.js -f umd -n ${varName} -o umd/${packageName}.min.js`, {
+  BUILD_ENV: 'production',
+});
 
 console.log(
   '\nThe minified, gzipped UMD build is %s',
