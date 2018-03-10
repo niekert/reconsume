@@ -1,6 +1,6 @@
 import React from 'react';
+import { withContextValues } from 'reconsume';
 import PrintAnalytics from './PrintAnalytics';
-import { withAnalytics } from 'react-ui-analytics';
 
 const Header = ({ analytics }) => (
   <header className="header">
@@ -10,7 +10,7 @@ const Header = ({ analytics }) => (
   </header>
 );
 
-const enhance = withAnalytics({
+const enhance = withContextValues({
   layoutLocation: 'header',
 });
 
