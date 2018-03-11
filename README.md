@@ -1,6 +1,6 @@
 # Reconsume
 
-Reconsume is a set of re-usable React components and higher order functions that help you solve common problems when building a UI for your app
+Reconsume is a set of re-usable React components and higher order functions that makes it easier for you to deal with state of components higher in the render tree.
 
 ## The problem
 
