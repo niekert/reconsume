@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import { ViewPortSizeProvider, withContextValues } from 'reconsume';
-import Analytics from './Analytics';
+import { ViewPortSizeProvider, withMergedContextValues } from 'reconsume';
+import MergedContext from './MergedContext';
 import ViewPortSize from './ViewportSize';
 import ParentContainerSize from './ParentContainerSize';
 
 const examplesMap = {
-  analytics: Analytics,
+  mergedContext: MergedContext,
   viewportSize: ViewPortSize,
   containerSize: ParentContainerSize,
 };
@@ -17,7 +17,7 @@ class App extends Component {
 
   render() {
     const { selectedExample } = this.state;
-    const ExampleComponent = examplesMap[selectedExample] || Analytics; // TODO: have intro
+    const ExampleComponent = examplesMap[selectedExample] || MergedContext; // TODO: have intro
 
     return (
       <ViewPortSizeProvider>
@@ -37,7 +37,7 @@ class App extends Component {
   }
 }
 
-const enhance = withContextValues({
+const enhance = withMergedContextValues({
   location: 'examples',
 });
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import MergedContextProvider from './MergedContextProvider';
 
-const withContextValues = input => ComposedComponent => (props) => {
+const withMergedContextValues = input => ComposedComponent => (props) => {
   const childValues = typeof input === 'function' ? input(props) : input;
 
   return (
@@ -11,4 +11,4 @@ const withContextValues = input => ComposedComponent => (props) => {
   );
 };
 
-export default withContextValues;
+export default withMergedContextValues;

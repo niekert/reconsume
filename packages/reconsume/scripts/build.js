@@ -15,6 +15,8 @@ const exec = (command, extraEnv) =>
 
 const packageName = require('../package').name;
 
+console.log('watch', process.env);
+
 console.log('\nBuilding ES modules...');
 
 exec(`rollup -c scripts/config.js -f es -o esm/${packageName}.js`);

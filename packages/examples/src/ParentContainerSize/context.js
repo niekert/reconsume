@@ -1,3 +1,5 @@
 import { createContainerSizeContext } from 'reconsume';
 
-export default createContainerSizeContext();
+const { Provider, Consumer } = createContainerSizeContext();
+
+export { Provider, Consumer };

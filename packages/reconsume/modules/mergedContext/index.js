@@ -1,2 +1,2 @@
 export { default as MergedContextProvider } from './MergedContextProvider';
-export { default as withContextValues } from './withContextValues';
+export { default as withMergedContextValues } from './withMergedContextValues';

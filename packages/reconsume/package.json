@@ -10,7 +10,8 @@
     "prepublishOnly": "node ./scripts/build.js",
     "clean": "git clean -fdX .",
     "lint": "eslint modules",
-    "test": "jest"
+    "test": "jest",
+    "start": "rollup -c scripts/config.js -f es -o esm/reconsume.js -w"
   },
   "devDependencies": {
     "babel-core": "^6.17.0",
@@ -48,7 +49,6 @@
   },
   "peerDependencies": {
     "prop-types": "^15.6.1",
-    "react": ">=15 || ^16",
-    "resize-observer-polyfill": "^1.5.0"
+    "react": ">=15 || ^16"
   }
 }

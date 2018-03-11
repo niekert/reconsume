@@ -1,13 +1,28 @@
 import React from 'react';
-import { Provider as ParentContainerSizeProvider } from './context';
+import styled from 'styled-components';
+import { Consumer as ParentContainerSizeConsumer } from './context';
+
+const BottomBar = styled.div`
+  position: absolute;
+  background: #f5f5f5;
+  padding: 15px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  bottom: 0;
+  width: 100%;
+`;
 
 function ChildComponent() {
   return (
-    <ParentContainerSizeProvider>
-      {(props) => {
-        console.log('props', props);
-        return <div>Hi</div>;
-      }}
-    </ParentContainerSizeProvider>
+    <ParentContainerSizeConsumer>
+      {props => (
+        <BottomBar>
+          <div>Hello {JSON.stringify(props)}</div>
+        </BottomBar>
+      )}
+    </ParentContainerSizeConsumer>
   );
 }
+export default ChildComponent;

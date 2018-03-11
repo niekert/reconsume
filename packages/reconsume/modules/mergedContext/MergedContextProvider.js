@@ -3,13 +3,13 @@ import PropTypes from 'prop-types';
 
 const { Provider, Consumer } = React.createContext();
 
-function MergedContextConsumer({ children, values }) {
+function MergedContextConsumer({ children, value }) {
   return (
     <Consumer quiet>
-      {(parentContextValues) => {
+      {(parentContextValues = {}) => {
         const mergedValues = {
           ...parentContextValues,
-          ...values,
+          ...value,
         };
 
         return <Provider value={mergedValues}>{children(mergedValues)}</Provider>;
@@ -20,11 +20,11 @@ function MergedContextConsumer({ children, values }) {
 
 MergedContextConsumer.propTypes = {
   children: PropTypes.func.isRequired,
-  values: PropTypes.object, // eslint-disable-line
+  value: PropTypes.object, // eslint-disable-line
 };
 
 MergedContextConsumer.defaultProps = {
-  values: {},
+  value: {},
 };
 
 export default MergedContextConsumer;

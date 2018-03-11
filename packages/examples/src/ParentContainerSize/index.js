@@ -1,8 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
-import { ContainerSizeProvider } from './context';
+import { Page, Header } from '../style/layout';
+import { Provider as ContainerSizeProvider } from './context';
+import ChildComponent from './ChildComponent';
 
-const Wrapper = styled.div`
+const List = styled.div`
   margin: 0 auto;
   box-shadow: 3px;
   padding: 16px;
@@ -28,7 +30,7 @@ const Button = styled.button`
 
 class ParentContainerSizeProvider extends React.Component {
   state = {
-    shownItems: 1,
+    shownItems: 3,
   };
 
   updateItems = (delta) => {
@@ -37,16 +39,23 @@ class ParentContainerSizeProvider extends React.Component {
 
   render() {
     return (
-      <React.Fragment>
-        <
-        <div>
-          <Button onClick={() => this.updateItems(-1)}>Remove item</Button>
-          <Button onClick={() => this.updateItems(1)}>Add Item</Button>
-        </div>
-        <Wrapper>
-          {Array.from({ length: this.state.shownItems }).map((item, index) => <Item key={index} />)}
-        </Wrapper>
-      </React.Fragment>
+      <ContainerSizeProvider includeScrollHeight>
+        {({ setElementRef }) => (
+          <Page>
+            <Header>
+              <h1>Parent container size provider</h1>
+              <Button onClick={() => this.updateItems(-1)}>Remove item</Button>
+              <Button onClick={() => this.updateItems(1)}>Add Item</Button>
+            </Header>
+            <List innerRef={setElementRef}>
+              {Array.from({ length: this.state.shownItems }).map((item, index) => (
+                <Item key={index} />
+              ))}
+            </List>
+            <ChildComponent />
+          </Page>
+        )}
+      </ContainerSizeProvider>
     );
   }
 }

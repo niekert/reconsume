@@ -33,7 +33,7 @@ export class ViewPortSizeProvider extends React.Component {
   };
 
   render() {
-    return <Provider value="hallo">{this.props.children}</Provider>;
+    return <Provider value={this.state}>{this.props.children}</Provider>;
   }
 }
 
