@@ -74,6 +74,8 @@ const ExampleComponent = ({ contextValues }) => {
   /**
    * contextValues are
    * { page: 'example-page', layout: 'example-page-header' }
+   *
+   **/
 }
 ```
 
