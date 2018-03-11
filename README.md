@@ -16,4 +16,6 @@ This works great. But in certain cases you want to scope the data based on the r
 
 This library is far ready and I'm not even sure yet whether it's even a good idea.
 
-##
+## API Docs
+
+wip
